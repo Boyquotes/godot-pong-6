@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://djnkodipud7g0"]
+
+[ext_resource type="PackedScene" uid="uid://dqw5i2iggs2nq" path="res://scenes/paddle.tscn" id="1_13xqs"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ei1r3"]
+[ext_resource type="PackedScene" uid="uid://b2i1v24g1cql7" path="res://scenes/pong.tscn" id="2_7yqip"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ei1r3")
+
+[node name="Paddle 1" parent="." instance=ExtResource("1_13xqs")]
+position = Vector2(48, 240)
+is_player_one = true
+
+[node name="Pong" parent="." instance=ExtResource("2_7yqip")]
+position = Vector2(320, 240)
+
+[node name="Paddle 2" parent="." instance=ExtResource("1_13xqs")]
+position = Vector2(592, 240)
+
+[connection signal="miss" from="Pong" to="." method="_on_pong_miss"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2i1v24g1cql7"]
+
+[ext_resource type="Script" path="res://scripts/pong.gd" id="1_decqi"]
+[ext_resource type="Texture2D" uid="uid://dym763jrw1x4u" path="res://sprites/pong.png" id="2_rtfrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a37xs"]
+size = Vector2(4, 4)
+
+[node name="Pong" type="Area2D"]
+script = ExtResource("1_decqi")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(6, 6)
+texture = ExtResource("2_rtfrb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_a37xs")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
